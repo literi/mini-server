@@ -1,21 +1,7 @@
 kind: pipeline
 type: docker
 name: java docker build
-
-workspace:
-  path: /home
-
-steps:
-  - name: maven构建
-    image: app-server
-    volumes:
-      - name: setting
-        path: /opt/mvn
-    commands:
-      - cd /home
-      - ls -al
-      - touch text.txt
-      - echo > test.md
+      
 steps:
   - name: build-package # 流水线名称
     image: maven:3.8-openjdk-11 # 定义创建容器的Docker镜像
@@ -25,8 +11,7 @@ steps:
       - name: maven-build
         path: /home/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
-      - mvn clean package # 应用打包命令
-      - pwd
+      - echo "test --" # 应用打包命令
       # - cp target/demo-1.0.0.jar /app/build/demo-1.0.0.jar
       # - cp Dockerfile /app/build/Dockerfile
       # - cp run.sh /app/build/run.sh
