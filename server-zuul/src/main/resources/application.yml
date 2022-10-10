@@ -1,0 +1,32 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: server-zuul
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: ${spring.application.name} # 注册到consul的服务名称
+zuul:
+  routes:
+#    ribbon:
+#      path: /ribbon/**
+#      serviceId: server-consumer # 转发到消费者 /ribbon/
+#    feign:
+#      path: /feign/**
+#      serviceId: server-consumer # 转发到消费者 /feign/
+    product:
+      path: /product/**
+      service-id: server-product
+    admin:
+      path: /admin/**
+      service-id: server-admin
+    file:
+      path: /file/**
+      service-id: server-file

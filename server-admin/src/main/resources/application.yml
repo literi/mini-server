@@ -1,0 +1,44 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: server-admin
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/wxapp?serverTimezone=UTC&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+      username: root
+      password: root
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        serviceName: ${spring.application.name} # 注册到consul的服务名称
+        
+wx:
+  appId: wxdf9913ada89bf3d2
+  appSecret: e55caf6b6599789e5a9079a69fc129ee
+  grantType: authorization_code
+  requestUrl: https://api.weixin.qq.com/sns/jscode2session
+wxToken:
+  url: https://api.weixin.qq.com/sns/oauth2/access_token
+wxUnionId:
+  url: https://api.weixin.qq.com/sns/userinfo
+
