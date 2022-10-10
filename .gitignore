@@ -185,3 +185,4 @@ yarn-error.log*
 *.sln
 *.classpath
 *.project
+*.jar
