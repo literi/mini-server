@@ -1,7 +1,7 @@
 kind: pipeline
 type: docker
 name: java docker build
-      
+
 steps:
   - name: build-package # 流水线名称
     image: maven:3.8-openjdk-11 # 定义创建容器的Docker镜像
@@ -9,9 +9,16 @@ steps:
       - name: maven-cache
         path: /root/.m2 # 将maven下载依赖的目录挂载出来，防止重复下载
       - name: maven-build
-        path: /home/dronedata # 将应用打包好的Jar和执行脚本挂载出来
+        path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
       - mvn package # 应用打包命令
-      - cp ./* /home/dronedata
       # - cp Dockerfile /app/build/Dockerfile
       # - cp run.sh /app/build/run.sh
+
+volumes: # 定义流水线挂载目录，用于共享数据
+  - name: maven-build
+    host:
+      path: /root/drone/maven/build # 从宿主机中挂载的目录
+  - name: maven-cache
+    host:
+      path: /root/drone/maven/cache
