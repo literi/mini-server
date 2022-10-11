@@ -20,17 +20,17 @@ steps:
       # 将打包后的文件复制到宿主机映射目录
       - pwd
       - ls -al
-      - cp /drone/src/server-zuul/target/server-zuul-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-log/target/server-log-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-file-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-product-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-admin-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-monitor-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-message-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-core-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-consumer-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-backup-0.0.1-SNAPSHOT.jar /home
-      - cp /drone/src/server-zuul/target/server-common-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-zuul/target/server-zuul-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-log/target/server-log-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-file/target/server-file-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-product/target/server-product-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-admin/target/server-admin-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-monitor/target/server-monitor-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-message/target/server-message-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-core/target/server-core-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-consumer/target/server-consumer-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-backup/target/server-backup-0.0.1-SNAPSHOT.jar /home
+      - cp ./server-common/target/server-common-0.0.1-SNAPSHOT.jar /home
       # - cp ./Dockerfile /home
 
   # 2.使用ssh访问主机制作镜像并运行
