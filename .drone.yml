@@ -9,9 +9,9 @@ steps:
       - name: maven-cache
         path: /root/.m2 # 将maven下载依赖的目录挂载出来，防止重复下载
       - name: maven-build
-        path: /home/build # 将应用打包好的Jar和执行脚本挂载出来
+        path: /home/dronedata # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
       - mvn package # 应用打包命令
-      - cp ./* /home/build/
+      - cp ./* /home/dronedata
       # - cp Dockerfile /app/build/Dockerfile
       # - cp run.sh /app/build/run.sh
