@@ -48,6 +48,7 @@ steps:
         - echo =======清理构建文件=======
         # - rm -rf *
         - echo =======部署成功=======
+        - echo =====TEST!======
 
   # 3.钉钉通知
   # - name: dingTalk notification
