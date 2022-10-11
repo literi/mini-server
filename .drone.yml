@@ -36,12 +36,13 @@ steps:
   # 2.使用ssh访问主机制作镜像并运行
   - name: ssh commands
     image: appleboy/drone-ssh:1.5.7
+    environment:
+      USERNAME:
+        from_secret: u
+      PASSWORD:
+        from_secret: p
     settings:
       host: 0.0.0.0
-      username: drone
-      password:
-        # 从drone仓库配置中秘密空间读取密码
-        from_secret: drone
       port: 22
       script:
         - echo =======暂停容器=======
