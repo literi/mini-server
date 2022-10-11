@@ -42,7 +42,7 @@ steps:
       PASSWORD:
         from_secret: p
     settings:
-      host: 0.0.0.0
+      host: 42.193.106.188
       port: 22
       script:
         - echo =======暂停容器=======
