@@ -18,8 +18,20 @@ steps:
       # 开始打包maven工程
       - mvn clean package -Dmaven.test.skip=true
       # 将打包后的文件复制到宿主机映射目录
-      - cp target/*.jar /home
-      - cp ../Dockerfile /home
+      - pwd
+      - ls -al
+      - cp /drone/src/server-zuul/target/server-zuul-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-log/target/server-log-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-file-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-product-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-admin-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-monitor-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-message-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-core-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-consumer-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-backup-0.0.1-SNAPSHOT.jar /home
+      - cp /drone/src/server-zuul/target/server-common-0.0.1-SNAPSHOT.jar /home
+      # - cp ./Dockerfile /home
 
   # 2.使用ssh访问主机制作镜像并运行
   - name: ssh commands
