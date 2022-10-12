@@ -30,5 +30,5 @@ steps:
         - echo =======清理构建文件=======
         # - rm -rf *
         - echo =======部署成功=======
-        - echo =====TEST!======
-        - sudo echo "update file" >> a.txt
+        - pwd
+        - echo "update file" >> a.txt
