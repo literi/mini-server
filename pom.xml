@@ -12,6 +12,8 @@
         <relativePath/>
     </parent>
 	<properties>
+		<project.artifactId>app-server</project.artifactId>
+		<project.version>1.0</project.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
@@ -54,4 +56,30 @@
     	<module>server-admin</module>
     	<module>server-file</module>
     </modules>
+<!--docker 插件配置-->
+   <build>
+      <finalName>app-server</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.2.3</version> <configuration>
+            <imageName>${project.artifactId}</imageName>
+            <!--docker的配置文件所在目录-->
+            <dockerDirectory>src/main/docker</dockerDirectory>
+            <resources>
+               <resource>
+                  <targetPath>/</targetPath>
+                  <directory>${project.build.directory}</directory>
+                  <include>${project.build.finalName}.jar</include>
+               </resource>
+            </resources>
+         </configuration>
+         </plugin>
+      </plugins>
+   </build>
 </project>

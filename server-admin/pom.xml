@@ -9,11 +9,17 @@
 	</parent>
 	<artifactId>server-admin</artifactId>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+	<!-- 添加 Javax Annotation -->
+	<dependency>
+		<groupId>javax.annotation</groupId>
+		<artifactId>jsr250-api</artifactId>
+		<version>1.0</version>
+	</dependency>
 	<dependency>
 	    <groupId>cn.hutool</groupId>
 	    <artifactId>hutool-all</artifactId>
@@ -141,6 +147,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        
         <!-- 打包时拷贝MyBatis的映射文件 -->
         <resources>
             <resource>
