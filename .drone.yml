@@ -12,7 +12,7 @@ steps:
       - name: maven_repo
         path: /root/.m2
       # 挂载宿主机的目录
-      - name: workspace
+      - name: build_space
         path: /home
     commands:
       # 开始打包maven工程
@@ -85,6 +85,6 @@ volumes:
       # path: /tmp/cache/.m2
       path: /home/drone/maven/
   # maven构建后与宿主机通信的共享目录
-  - name: workspace
+  - name: build_space
     host:
-      path: /home/drone/workspace
+      path: /home/drone/build
