@@ -37,12 +37,11 @@ steps:
   - name: ssh commands
     image: appleboy/drone-ssh:1.5.7
     environment:
-      USERNAME:
-        from_secret: u
-      PASSWORD:
-        from_secret: p
     settings:
-      host: 42.193.106.188
+      host: 0.0.0.0
+      username: root
+      key:
+        from_secret: ssh_key
       port: 22
       script:
         - echo =======暂停容器=======
