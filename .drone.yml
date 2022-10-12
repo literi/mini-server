@@ -39,7 +39,7 @@ steps:
     environment:
     settings:
       host: 0.0.0.0
-      username: root
+      username: drone
       key:
         from_secret: ssh_key
       port: 22
