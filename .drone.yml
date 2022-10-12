@@ -31,7 +31,7 @@ steps:
       - cp ./server-consumer/target/server-consumer-0.0.1-SNAPSHOT.jar /home
       - cp ./server-backup/target/server-backup-0.0.1-SNAPSHOT.jar /home
       - cp ./server-common/target/server-common-0.0.1-SNAPSHOT.jar /home
-      # - cp ./Dockerfile /home
+      - cp ./Dockerfile /home
 
   # 2.使用ssh访问主机制作镜像并运行
   - name: ssh commands
