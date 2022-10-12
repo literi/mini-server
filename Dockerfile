@@ -1,7 +1,6 @@
 # using alpine-glibc instead of alpine  is mainly because JDK relies on glibc
 FROM docker.io/jeanblanchard/alpine-glibc
 # author
-MAINTAINER simon
 # A streamlined jre
 ADD jre1.8.tar.gz /usr/java/jdk/
 # set env
