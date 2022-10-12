@@ -40,7 +40,7 @@ steps:
     settings:
       host: 0.0.0.0
       username: drone
-      key:
+      password:
         from_secret: ssh_key
       port: 22
       script:
