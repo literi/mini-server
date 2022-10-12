@@ -54,6 +54,7 @@ steps:
         - docker rm -f `docker ps -a | grep springdemo | awk '{print $1}' `
         - docker rmi `docker images | grep springdemo | awk '{print $3}' `
         - echo =======开始构建新镜像=======
+        - cd /home/drone/build
         - docker build -t springdemo:v1 .
         - echo =======开始部署应用=======
         - docker run -d -p 8188:8180 --name springdemo springdemo:v1
