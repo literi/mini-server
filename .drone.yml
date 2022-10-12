@@ -31,4 +31,4 @@ steps:
         # - rm -rf *
         - echo =======部署成功=======
         - echo =====TEST!======
-        - echo "update file" >> a.txt
+        - sudo echo "update file" >> a.txt
